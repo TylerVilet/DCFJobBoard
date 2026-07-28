@@ -88,6 +88,21 @@
     justify-content: center;
   }
 
+  .filter-label {
+    width: 100%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin: 0.75rem 0 0.35rem;
+  }
+
+  .filter-label:first-of-type {
+    margin-top: 0;
+  }
+
   .filter-btn {
     font-family: 'Oswald', sans-serif;
     font-size: 0.85rem;
@@ -111,6 +126,59 @@
     background-color: var(--red);
     border-color: var(--red);
     color: var(--white);
+  }
+
+  /* Level filter buttons get a slightly smaller, secondary treatment */
+  .level-filter-btn {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.8rem;
+    border-color: var(--gray);
+    color: var(--gray);
+  }
+
+  .level-filter-btn:hover {
+    background-color: var(--gray);
+    border-color: var(--gray);
+    color: var(--white);
+  }
+
+  .level-filter-btn.active {
+    background-color: var(--gray);
+    border-color: var(--gray);
+    color: var(--white);
+  }
+
+  /* ---------- POST A JOB CTA ---------- */
+  .post-job-cta {
+    max-width: 900px;
+    margin: 1.75rem auto 0;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .post-job-cta p {
+    margin: 0 0 0.6rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+  }
+
+  .post-job-btn {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.9rem;
+    background-color: var(--black);
+    color: var(--white);
+    border: 2px solid var(--black);
+    padding: 0.6rem 1.3rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .post-job-btn:hover {
+    background-color: var(--white);
+    color: var(--black);
   }
 
   /* ---------- JOB LISTINGS ---------- */
@@ -157,6 +225,38 @@
     padding: 0.15rem 0.5rem;
     border-radius: 3px;
     margin-bottom: 0.4rem;
+    margin-right: 0.35rem;
+  }
+
+  /* Level tags step from light (Entry Level) to solid (Journeyman) so the
+     progression is visible at a glance */
+  .level-tag {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.4rem;
+    border: 1.5px solid var(--gray);
+  }
+
+  .level-entry {
+    background-color: var(--white);
+    color: var(--gray);
+    border-color: var(--gray);
+  }
+
+  .level-apprentice {
+    background-color: var(--white);
+    color: var(--darkred);
+    border-color: var(--darkred);
+  }
+
+  .level-journeyman {
+    background-color: var(--darkred);
+    color: var(--white);
+    border-color: var(--darkred);
   }
 
   .job-desc {
@@ -183,6 +283,116 @@
   .apply-btn:hover {
     background-color: var(--red);
     color: var(--white);
+  }
+
+  .no-results {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    padding: 2rem 1rem;
+    display: none;
+  }
+
+  /* ---------- POST A JOB MODAL ---------- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 100;
+  }
+
+  .modal-overlay[hidden] {
+    display: none;
+  }
+
+  .modal {
+    background: var(--white);
+    border-radius: 6px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.75rem;
+    position: relative;
+  }
+
+  .modal h2 {
+    color: var(--red);
+    font-size: 1.3rem;
+    margin: 0 0 0.3rem;
+  }
+
+  .modal-subtext {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0 0 1.25rem;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.9rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-light);
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--gray);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+  }
+
+  .modal-submit-btn {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.9rem;
+    background-color: var(--red);
+    color: var(--white);
+    border: 2px solid var(--red);
+    padding: 0.65rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .modal-submit-btn:hover {
+    background-color: var(--darkred);
+    border-color: var(--darkred);
   }
 
   /* ---------- FOOTER ---------- */
@@ -223,23 +433,41 @@
 
   <div class="header-text">
     <h1>DeKalb Chamber Foundation Job Board</h1>
-    <p>Job listings for students in electrical, plumbing, welding, HVAC, and more.</p>
+    <p>Job listings for students in electrical, plumbing, welding, HVAC, construction, and more.</p>
   </div>
 </header>
 
 <div class="filters">
+  <p class="filter-label">Filter by Trade</p>
   <button class="filter-btn active" data-category="all">All Jobs</button>
   <button class="filter-btn" data-category="electrical">Electrical</button>
   <button class="filter-btn" data-category="plumbing">Plumbing</button>
   <button class="filter-btn" data-category="welding">Welding</button>
   <button class="filter-btn" data-category="hvac">HVAC</button>
+  <button class="filter-btn" data-category="construction">Construction</button>
+  <button class="filter-btn" data-category="sheetmetal">Sheet Metal</button>
+  <button class="filter-btn" data-category="masonry">Masonry</button>
+  <button class="filter-btn" data-category="automotive">Automotive</button>
+  <button class="filter-btn" data-category="other">Other</button>
+
+  <p class="filter-label">Filter by Level</p>
+  <button class="filter-btn level-filter-btn active" data-level="all">All Levels</button>
+  <button class="filter-btn level-filter-btn" data-level="entry">Entry Level</button>
+  <button class="filter-btn level-filter-btn" data-level="apprentice">Apprentice</button>
+  <button class="filter-btn level-filter-btn" data-level="journeyman">Journeyman</button>
+</div>
+
+<div class="post-job-cta">
+  <p>Own a local business hiring students in the trades?</p>
+  <button class="post-job-btn" id="open-post-job">Request a Job Posting</button>
 </div>
 
 <main id="job-list">
 
-  <div class="job-card" data-category="electrical">
+  <div class="job-card" data-category="electrical" data-level="entry">
     <div class="job-info">
       <span class="job-tag">Electrical</span>
+      <span class="level-tag level-entry">Entry Level</span>
       <h2>Apprentice Electrician</h2>
       <p class="job-meta">IDEAL Electrical &middot; Sycamore, IL</p>
       <p class="job-desc">Entry-level apprentice position. On-the-job training provided, no experience required.</p>
@@ -247,9 +475,10 @@
     <a class="apply-btn" href="https://www.idealindustries.com/us/en/brands/ideal-electrical.html" target="_blank">Apply</a>
   </div>
 
-  <div class="job-card" data-category="plumbing">
+  <div class="job-card" data-category="plumbing" data-level="entry">
     <div class="job-info">
       <span class="job-tag">Plumbing</span>
+      <span class="level-tag level-entry">Entry Level</span>
       <h2>Plumbing Helper</h2>
       <p class="job-meta">Joe Bero & Son Plumbing & Piping &middot; Sycamore, IL</p>
       <p class="job-desc">Assist licensed plumbers on residential service calls. Great for students in a plumbing program.</p>
@@ -257,9 +486,10 @@
     <a class="apply-btn" href="https://www.beroplumbing.com/contact/" target="_blank">Apply</a>
   </div>
 
-  <div class="job-card" data-category="welding">
+  <div class="job-card" data-category="welding" data-level="apprentice">
     <div class="job-info">
       <span class="job-tag">Welding</span>
+      <span class="level-tag level-apprentice">Apprentice</span>
       <h2>Welding Intern</h2>
       <p class="job-meta">DeKalb Mechanical &middot; DeKalb, IL</p>
       <p class="job-desc">Summer internship for students with basic MIG welding skills. Safety training provided.</p>
@@ -267,39 +497,201 @@
     <a class="apply-btn" href="https://www.dekalbmechanical.com/" target="_blank">Apply</a>
   </div>
 
-  <div class="job-card" data-category="hvac">
+  <div class="job-card" data-category="hvac" data-level="apprentice">
     <div class="job-info">
       <span class="job-tag">HVAC</span>
-      <h2>HVAC Technician Train</h2>
+      <span class="level-tag level-apprentice">Apprentice</span>
+      <h2>HVAC Technician Trainee</h2>
       <p class="job-meta">DeKalb Mechanical &amp; Cooling &middot; DeKalb, IL</p>
       <p class="job-desc">Learn installation and repair of residential heating/cooling systems while earning a paycheck.</p>
     </div>
     <a class="apply-btn" href="https://www.dekalbmechanical.com/" target="_blank">Apply</a>
   </div>
 
+  <p class="no-results" id="no-results">No jobs currently match these filters. Check back soon, or use the "Request a Job Posting" button above if you're an employer with an opening.</p>
+
 </main>
+
+<!-- ---------- POST A JOB MODAL ---------- -->
+<div class="modal-overlay" id="post-job-modal" hidden>
+  <div class="modal">
+    <button class="modal-close" id="close-post-job" aria-label="Close">&times;</button>
+    <h2>Request a Job Posting</h2>
+    <p class="modal-subtext">Fill this out and we'll follow up to get your opening listed on the board.</p>
+
+    <p id="pj-status" class="modal-subtext" style="display:none;"></p>
+
+    <form id="post-job-form" action="https://formspree.io/f/xnjewynw" method="POST">
+      <div class="form-group">
+        <label for="pj-company">Business Name</label>
+        <input type="text" id="pj-company" name="company" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-contact">Contact Name</label>
+        <input type="text" id="pj-contact" name="contact_name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-email">Contact Email</label>
+        <input type="email" id="pj-email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-category">Trade Category</label>
+        <select id="pj-category" name="trade_category" required>
+          <option value="">Select one&hellip;</option>
+          <option value="electrical">Electrical</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="welding">Welding</option>
+          <option value="hvac">HVAC</option>
+          <option value="construction">Construction</option>
+          <option value="sheetmetal">Sheet Metal</option>
+          <option value="masonry">Masonry</option>
+          <option value="automotive">Automotive</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-level">Position Level</label>
+        <select id="pj-level" name="position_level" required>
+          <option value="">Select one&hellip;</option>
+          <option value="entry">Entry Level</option>
+          <option value="apprentice">Apprentice</option>
+          <option value="journeyman">Journeyman</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-title">Job Title</label>
+        <input type="text" id="pj-title" name="job_title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-desc">Job Description</label>
+        <textarea id="pj-desc" name="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="pj-link">Application Link or Phone Number</label>
+        <input type="text" id="pj-link" name="application_link" placeholder="https:// or (815) 555-0100">
+      </div>
+
+      <input type="hidden" name="_subject" value="New Job Posting Request — DCF Job Board">
+
+      <button type="submit" class="modal-submit-btn" id="pj-submit-btn">Send Request</button>
+    </form>
+  </div>
+</div>
 
 <footer>
   &copy; 2026 Job Board &middot; Built for students, by students.
 </footer>
 
 <script>
-  const buttons = document.querySelectorAll('.filter-btn');
+  const buttons = document.querySelectorAll('.filter-btn[data-category]');
+  const levelButtons = document.querySelectorAll('.filter-btn[data-level]');
   const jobCards = document.querySelectorAll('.job-card');
+  const noResults = document.getElementById('no-results');
+
+  let currentCategory = 'all';
+  let currentLevel = 'all';
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    jobCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardLevel = card.getAttribute('data-level');
+
+      const categoryMatch = currentCategory === 'all' || currentCategory === cardCategory;
+      const levelMatch = currentLevel === 'all' || currentLevel === cardLevel;
+
+      const shouldShow = categoryMatch && levelMatch;
+      card.style.display = shouldShow ? 'flex' : 'none';
+      if (shouldShow) visibleCount++;
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       buttons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-
-      const selectedCategory = button.getAttribute('data-category');
-
-      jobCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        const shouldShow = selectedCategory === 'all' || selectedCategory === cardCategory;
-        card.style.display = shouldShow ? 'flex' : 'none';
-      });
+      currentCategory = button.getAttribute('data-category');
+      applyFilters();
     });
+  });
+
+  levelButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      levelButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      currentLevel = button.getAttribute('data-level');
+      applyFilters();
+    });
+  });
+
+  // ---------- POST A JOB MODAL ----------
+  const modal = document.getElementById('post-job-modal');
+  const openBtn = document.getElementById('open-post-job');
+  const closeBtn = document.getElementById('close-post-job');
+  const postJobForm = document.getElementById('post-job-form');
+  const pjStatus = document.getElementById('pj-status');
+  const pjSubmitBtn = document.getElementById('pj-submit-btn');
+
+  openBtn.addEventListener('click', () => {
+    modal.hidden = false;
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.hidden = true;
+  });
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.hidden = true;
+    }
+  });
+
+  postJobForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    pjSubmitBtn.disabled = true;
+    pjSubmitBtn.textContent = 'Sending…';
+    pjStatus.style.display = 'none';
+
+    try {
+      const response = await fetch(postJobForm.action, {
+        method: 'POST',
+        body: new FormData(postJobForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        pjStatus.textContent = "Thanks! Your request has been sent — we'll follow up soon.";
+        pjStatus.style.color = 'var(--red)';
+        pjStatus.style.display = 'block';
+        postJobForm.reset();
+        setTimeout(() => {
+          modal.hidden = true;
+          pjStatus.style.display = 'none';
+        }, 2500);
+      } else {
+        pjStatus.textContent = 'Something went wrong. Please try again in a moment.';
+        pjStatus.style.color = 'var(--text-light)';
+        pjStatus.style.display = 'block';
+      }
+    } catch (error) {
+      pjStatus.textContent = 'Network error — please check your connection and try again.';
+      pjStatus.style.color = 'var(--text-light)';
+      pjStatus.style.display = 'block';
+    } finally {
+      pjSubmitBtn.disabled = false;
+      pjSubmitBtn.textContent = 'Send Request';
+    }
   });
 </script>
 
