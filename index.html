@@ -189,18 +189,19 @@
   }
 
   .job-card {
-    background-color: var(--card-bg);
-    border-left: 6px solid var(--black);
-    border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  background-color: var(--card-bg);
+  border-left: 6px solid var(--black);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 1.5rem 1.5rem 1.25rem;   /* was 1.25rem 1.5rem — extra top room for the badge */
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;                /* NEW — anchors the badge */
+}
 
   .job-info h2 {
     font-size: 1.2rem;
@@ -227,6 +228,15 @@
     margin-bottom: 0.4rem;
     margin-right: 0.35rem;
   }
+
+  .job-updated {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-light);
+}
 
   /* Level tags step from light (Entry Level) to solid (Journeyman) so the
      progression is visible at a glance */
@@ -432,7 +442,7 @@
   </a>
 
   <div class="header-text">
-    <h1>DeKalb Chamber Foundation Job Board</h1>
+    <h1>Trades Job Board</h1>
     <p>Job listings for students in electrical, plumbing, welding, HVAC, construction, and more.</p>
   </div>
 </header>
@@ -464,8 +474,9 @@
 
 <main id="job-list">
 
-  <div class="job-card" data-category="electrical" data-level="entry">
+  <div class="job-card" data-category="electrical" data-level="entry" data-updated="2026-07-30">
     <div class="job-info">
+      <span class="job-updated"></span>
       <span class="job-tag">Electrical</span>
       <span class="level-tag level-entry">Entry Level</span>
       <h2>Apprentice Electrician</h2>
@@ -475,8 +486,9 @@
     <a class="apply-btn" href="https://www.idealindustries.com/us/en/brands/ideal-electrical.html" target="_blank">Apply</a>
   </div>
 
-  <div class="job-card" data-category="plumbing" data-level="entry">
+  <div class="job-card" data-category="plumbing" data-level="entry" data-updated="2026-07-30">
     <div class="job-info">
+      <span class="job-updated"></span>
       <span class="job-tag">Plumbing</span>
       <span class="level-tag level-entry">Entry Level</span>
       <h2>Plumbing Helper</h2>
@@ -486,26 +498,28 @@
     <a class="apply-btn" href="https://www.beroplumbing.com/contact/" target="_blank">Apply</a>
   </div>
 
-  <div class="job-card" data-category="welding" data-level="apprentice">
+  <div class="job-card" data-category="welding" data-level="apprentice" data-updated="2026-07-31">
     <div class="job-info">
+      <span class="job-updated"></span>
       <span class="job-tag">Welding</span>
       <span class="level-tag level-apprentice">Apprentice</span>
       <h2>Welding Intern</h2>
       <p class="job-meta">DeKalb Mechanical &middot; DeKalb, IL</p>
       <p class="job-desc">Summer internship for students with basic MIG welding skills. Safety training provided.</p>
     </div>
-    <a class="apply-btn" href="https://www.dekalbmechanical.com/" target="_blank">Apply</a>
+    <a class="apply-btn" href="tel:+18155551234">Call: (815) 555-1234</a>
   </div>
 
-  <div class="job-card" data-category="hvac" data-level="apprentice">
+  <div class="job-card" data-category="hvac" data-level="apprentice" data-updated="2026-07-30">
     <div class="job-info">
+      <span class="job-updated"></span>
       <span class="job-tag">HVAC</span>
       <span class="level-tag level-apprentice">Apprentice</span>
       <h2>HVAC Technician Trainee</h2>
       <p class="job-meta">DeKalb Mechanical &amp; Cooling &middot; DeKalb, IL</p>
       <p class="job-desc">Learn installation and repair of residential heating/cooling systems while earning a paycheck.</p>
     </div>
-    <a class="apply-btn" href="https://www.dekalbmechanical.com/" target="_blank">Apply</a>
+    <a class="apply-btn" href="tel:+18155555555">Call: (815) 555-5555</a>
   </div>
 
   <p class="no-results" id="no-results">No jobs currently match these filters. Check back soon, or use the "Request a Job Posting" button above if you're an employer with an opening.</p>
@@ -633,6 +647,20 @@
       applyFilters();
     });
   });
+
+// ---------- SORT BY LAST UPDATED + FILL IN BADGE TEXT ----------
+const jobListEl = document.getElementById('job-list');
+const sortedCards = Array.from(jobListEl.querySelectorAll('.job-card'));
+
+sortedCards.sort((a, b) => new Date(b.dataset.updated) - new Date(a.dataset.updated));
+
+sortedCards.forEach(card => {
+  jobListEl.insertBefore(card, noResults); // re-insert in sorted order, keeping "no results" message last
+  const badge = card.querySelector('.job-updated');
+  const d = new Date(card.dataset.updated + 'T00:00:00');
+  badge.textContent = 'Updated ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+});
+
 
   // ---------- POST A JOB MODAL ----------
   const modal = document.getElementById('post-job-modal');
