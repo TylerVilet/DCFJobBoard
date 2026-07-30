@@ -1,6 +1,15 @@
 # DCF Job Board
 
-A job board website built for the DeKalb Chamber Foundation, connecting DeKalb, IL high school students with local employers offering trades employment opportunities.
+A job board website built for the DeKalb Chamber Foundation, connecting high school students within the DeKalb County with local employers offering trades employment opportunities.
+
+## How to Run
+
+Live site: [tylervilet.github.io/DCFJobBoard](https://tylervilet.github.io/DCFJobBoard/)
+
+To run locally:
+1. Clone the repo
+2. Open `index.html` in VS Code
+3. Right-click and select **Open with Live Server** (or open the file directly in a browser)
 
 ## About
 
@@ -13,7 +22,7 @@ This project was built during my summer internship with the DeKalb Chamber Found
 * Employer-submitted job posting requests via an in-page form (powered by Formspree)
 * Supports both web application links and click-to-call phone numbers for employers without an online application
 * Fully responsive layout for mobile and desktop
-* Custom favicon, logo header, and DCF-branded color scheme
+* Favicon, logo header, and DCF-branded color scheme
 
 ## Built With
 
@@ -30,14 +39,6 @@ This project was built during my summer internship with the DeKalb Chamber Found
 * Debugging GitHub Pages deployment issues (Jekyll processing, CDN propagation delays, `.nojekyll`)
 * Handling form submissions with `fetch()` and displaying real-time status feedback to the user
 
-## How to Run
-
-Live site: [tylervilet.github.io/DCFJobBoard](https://tylervilet.github.io/DCFJobBoard/)
-
-To run locally:
-1. Clone the repo
-2. Open `index.html` in VS Code
-3. Right-click and select **Open with Live Server** (or open the file directly in a browser)
 
 ## Adding or Editing a Job Listing
 
