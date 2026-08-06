@@ -40,6 +40,15 @@ This project was built during my summer internship with the DeKalb Chamber Found
 * Handling form submissions with `fetch()` and displaying real-time status feedback to the user
 
 
+## Change Formspree link to your Email
+
+This repo is currently set to my formspree which is linked to my email, so for your own personalized access change this line:
+
+<form id="post-job-form" action="https://formspree.io/f/xnjewynw" method="POST">
+
+To do this go to https://formspree.io and create your own project and insert that link. This way your email will be getting the requests
+to be able to update the job listings.
+
 ## Adding or Editing a Job Listing
 
 Each job is a `.job-card` div in `index.html` with three data attributes that drive filtering and sorting:
